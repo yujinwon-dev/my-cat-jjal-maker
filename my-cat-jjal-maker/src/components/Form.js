@@ -1,7 +1,8 @@
 import React from "react";
 
+const includesHangeul = (text) => /[ㄱ-ㅎ|ㅏ-ㅣ|가-힣]/i.test(text);
+
 function Form({ updateMainCat }) {
-  const includesHangeul = (text) => /[ㄱ-ㅎ|ㅏ-ㅣ|가-힣]/i.test(text);
   const [value, setValue] = React.useState("");
   const [errorMessage, setErrorMessage] = React.useState("");
 
@@ -12,15 +13,17 @@ function Form({ updateMainCat }) {
     } else {
       setErrorMessage("");
     }
-    setValue(userValue);
+    setValue(userValue.toUpperCase());
   }
 
   function handleFormSubmit(event) {
     event.preventDefault();
-    console.log("생성 버튼 클릭");
 
     if (value === "") {
       setErrorMessage("문구를 입력해주세요.");
+      return;
+    } else if (includesHangeul(value)) {
+      setErrorMessage("한글은 입력할 수 없습니다.");
       return;
     }
     updateMainCat(value);

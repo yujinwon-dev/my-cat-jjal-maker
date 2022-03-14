@@ -36,3 +36,8 @@ code {
   left: -45px;
   bottom: 15px;
 }
+
+.favorites {
+  list-style: none;
+  display: flex;
+}
