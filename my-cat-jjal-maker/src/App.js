@@ -21,16 +21,9 @@ const jsonLocalStorage = {
   },
   // string으로 저장되어있던 데이터를 JavaScript Object 형태로 변환해서 가져옴
   getItem: (key) => {
-    JSON.parse(localStorage.getItem(key));
+    return JSON.parse(localStorage.getItem(key));
   },
 };
-
-// const jsonLocalStorage = {
-//   setItem: (key, value) => {
-//     localStorage.setItem(key, JSON.stringify(value));
-//   },
-//   getItem: (key) => JSON.parse(localStorage.getItem(key)),
-// };
 
 function App() {
   // 앱이 처음 실행될 때만 접근하도록
