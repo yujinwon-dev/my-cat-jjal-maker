@@ -27,6 +27,7 @@ function Form({ updateMainCat }) {
       return;
     }
     updateMainCat(value);
+    setValue("");
   }
 
   return (
